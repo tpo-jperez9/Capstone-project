@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import apiKey from '../config';
+import MovieContainer from './MovieContainer';
 
 function Home(){
 
@@ -18,8 +19,10 @@ function Home(){
     return (
     <header>
         <h1>HOMEPAGE</h1>
+        <MovieContainer data={movieData} />
     </header>
     )
 }
 
 export default Home;
+
