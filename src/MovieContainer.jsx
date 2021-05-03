@@ -8,11 +8,19 @@ function MovieContainer(props) {
   for (let i=0; i<=2; i++) {
     const title = data[i].original_title;
     const description = data[i].overview;
-    movies.push(<Movie title={title} description={description} />)
+    const id = data[i].id;
+
+    function buildMoviePoster(movieData) {
+      let filePath = data[i].poster_path;
+      return `https://image.tmdb.org/t/p/w500/${filePath}`
+    };
+
+    const poster = buildMoviePoster();
+
+    movies.push(<Movie key={id} id={id} title={title} description={description} poster={poster}/>)
   }
   return (
     <React.Fragment>
-    <h1>Movie Container</h1>
     {movies}
     </React.Fragment>
   )
