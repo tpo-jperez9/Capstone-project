@@ -10,12 +10,23 @@ function Home(){
     }, []);
 
     return (
-    <header>
-        <h1>JJSMHL Movie Site</h1>
-        <MovieContainer data={movieData} />
-    </header>
+        <main className="main-content">
+        <div className="container">
+          <div className="page">
+            
+            <div className="content">
+              <div className="row">
+                <div className="col-md-6">
+                  
+                <MovieContainer data={movieData} />
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     )
 }
 
 export default Home;
-
