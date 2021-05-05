@@ -4,8 +4,6 @@ import apiKey from '../config';
 import axios from 'axios';
 
 function MovieDetail() {
-  const params = useParams();
-  const id = params.id;
   
   //Title, overview, run time, rating, directors, actors, reviews(2)
   const [title, setTitle] = useState('');
@@ -18,7 +16,8 @@ function MovieDetail() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=credits`)
+    let randomId = Math.floor(Math.random()*200000) + 2
+    axios.get(`https://api.themoviedb.org/3/movie/${randomId}?api_key=${apiKey}&language=en-US&append_to_response=credits`)
       .then((response) => {
         console.log(response)
         setTitle(response.data.title)
@@ -43,7 +42,7 @@ function MovieDetail() {
         setDirectors(directorNames)
         })
 
-    axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`)
+    axios.get(`https://api.themoviedb.org/3/movie/${randomId}/reviews?api_key=${apiKey}&language=en-US&page=1`)
       .then((response) => {
         console.log(response.data)
         let reviewData = response.data.results;
@@ -57,7 +56,7 @@ function MovieDetail() {
           setReviews(reviewList)
       }
       })
-  }, [id])
+  }, [])
 
   return (
     <main className="main-content">
@@ -111,3 +110,4 @@ function MovieDetail() {
 };
 
 export default MovieDetail;
+

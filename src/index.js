@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import {ServiceProvider} from './Context';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App";
+import { ServiceProvider } from "./Context";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,6 +11,6 @@ ReactDOM.render(
       <App />
     </ServiceProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
