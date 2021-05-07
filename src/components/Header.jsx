@@ -64,8 +64,9 @@ function Header(props) {
                 />
                 <button
                   type="button"
-                  className="btn btn-danger btn-lg btn-outline-warning"
-                >
+				  className="btn btn-danger btn-lg btn-outline-warning"
+				  onClick={handleSubmit}
+				>
                   Go
                 </button>
               </form>
